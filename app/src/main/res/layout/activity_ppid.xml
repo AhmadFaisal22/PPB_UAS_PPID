@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".PPID">
         <ExpandableListView
+            android:id="@+id/expandableList"
+            android:layoutDirection="rtl"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
