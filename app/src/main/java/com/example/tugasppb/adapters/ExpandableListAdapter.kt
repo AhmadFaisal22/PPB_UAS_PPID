@@ -29,15 +29,16 @@ class ExpandableListAdapter(
         isLastChild: Boolean, convertView: View?, parent: ViewGroup?
     ): View? {
         var convertView: View? = convertView
+
         val expandedListText =
             getChild(listPosition, expandedListPosition) as String
-        if (convertView == null) {
-            val layoutInflater = context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+
+        val layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             convertView = layoutInflater.inflate(R.layout.item_expandable_item, null)
-        }
+
         val expandedListTextView = convertView?.findViewById(R.id.title) as TextView
-        expandedListTextView.text = expandedListText
+            expandedListTextView.text = expandedListText
+
         return convertView
     }
 

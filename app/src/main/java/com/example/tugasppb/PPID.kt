@@ -20,7 +20,7 @@ class PPID : AppCompatActivity() {
         expandableListDetail = ExpandablePpid.data
         expandableListTitle = ArrayList(expandableListDetail!!.keys)
         expandableListAdapter = ExpandableListAdapter(this,
-            expandableListTitle as ArrayList<String>, expandableListDetail!!
+            expandableListTitle!!, expandableListDetail!!
         )
         expandableListView!!.setAdapter(expandableListAdapter)
         expandableListView!!.setOnGroupExpandListener { groupPosition ->
