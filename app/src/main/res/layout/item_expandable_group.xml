@@ -5,6 +5,7 @@
     android:layoutDirection="ltr"
     android:paddingVertical="12dp"
     android:gravity="center_vertical"
+    android:id='@+id/test'
     >
     <ImageView
         android:layout_marginLeft="20dp"

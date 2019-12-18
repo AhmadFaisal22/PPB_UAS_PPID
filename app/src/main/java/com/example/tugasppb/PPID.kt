@@ -4,8 +4,9 @@ import android.os.Bundle
 import android.widget.ExpandableListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.tugasppb.data.ExpandablePpid
 import com.example.tugasppb.adapters.ExpandableListAdapter
+import com.example.tugasppb.data.ExpandablePpid
+
 
 class PPID : AppCompatActivity() {
     var expandableListView: ExpandableListView? = null
@@ -28,6 +29,15 @@ class PPID : AppCompatActivity() {
                 expandableListTitle!!.get(groupPosition) + " List Expanded.",
                 Toast.LENGTH_SHORT
             ).show()
+        }
+        expandableListView!!.setOnChildClickListener { parent, v, groupPosition, childPosition, id ->
+            Toast.makeText(
+                applicationContext,
+                expandableListTitle!![groupPosition] + " -> "
+                        + expandableListDetail!![expandableListTitle!![groupPosition]]!![childPosition],
+                Toast.LENGTH_SHORT
+            ).show()
+            false
         }
     }
 }

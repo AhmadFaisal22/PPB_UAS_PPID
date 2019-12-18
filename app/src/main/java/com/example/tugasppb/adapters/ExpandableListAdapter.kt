@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.tugasppb.R
 
@@ -72,6 +73,7 @@ class ExpandableListAdapter(
         listTitleTextView.text = listTitle
         return convertView
     }
+
 
     override fun hasStableIds(): Boolean {
         return false
