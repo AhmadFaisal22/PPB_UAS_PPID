@@ -5,9 +5,9 @@
     android:layoutDirection="ltr"
     android:paddingVertical="12dp"
     android:gravity="center_vertical"
-    android:id='@+id/test'
     >
     <ImageView
+        android:id="@+id/image"
         android:layout_marginLeft="20dp"
         android:src="@mipmap/ic_launcher"
         android:layout_width="35dp"

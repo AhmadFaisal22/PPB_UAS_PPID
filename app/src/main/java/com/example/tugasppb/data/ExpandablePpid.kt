@@ -1,14 +1,16 @@
 package com.example.tugasppb.data
 
+import com.example.tugasppb.R
+import com.example.tugasppb.models.ExpandableGroupParent
 import java.util.*
 import kotlin.collections.ArrayList
 
 
 object ExpandablePpid {
-    val data: HashMap<String, ArrayList<String>>
+    val data: ArrayList<ExpandableGroupParent>
         get() {
             val expandableListDetail =
-                HashMap<String, ArrayList<String>>()
+                ArrayList<ExpandableGroupParent>()
             val infoPublick: ArrayList<String> =
                 ArrayList()
             infoPublick.add("Informasi Berkala")
@@ -21,8 +23,21 @@ object ExpandablePpid {
             layanan.add("Keberatan Informasi")
             layanan.add("Mekanisme Pengajuan Penyelesaian Sengketa Informasi")
             layanan.add("Tata Cara Pengaduan Perilaku ASN")
-            expandableListDetail["Info Public"] = infoPublick
-            expandableListDetail["Layanan"] = layanan
+
+            expandableListDetail.add(
+                ExpandableGroupParent(
+                    "Info Public",
+                    R.drawable.ic_exp_info_public,
+                    infoPublick
+                )
+            )
+            expandableListDetail.add(
+                ExpandableGroupParent(
+                    "Layanan",
+                    R.drawable.ic_exp_layanan,
+                    layanan
+                )
+            )
             return expandableListDetail
         }
 }

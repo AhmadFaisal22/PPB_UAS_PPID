@@ -1,23 +1,24 @@
 package com.example.tugasppb.adapters
 
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
-import android.widget.LinearLayout
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import com.example.tugasppb.R
-
+import com.example.tugasppb.models.ExpandableGroupParent
 
 class ExpandableListAdapter(
     val context: Context,
-    val expandableListTitle: ArrayList<String>,
-    val expandableListDetail: HashMap<String, ArrayList<String>>
-) : BaseExpandableListAdapter() {
+    val expandableList: ArrayList<ExpandableGroupParent>
+    ) : BaseExpandableListAdapter() {
     override fun getChild(listPosition: Int, expandedListPosition: Int): Any {
-        return expandableListDetail[expandableListTitle[listPosition]]!!.get(expandedListPosition)
+        return getGroup(listPosition).listChild[expandedListPosition]
     }
 
     override fun getChildId(listPosition: Int, expandedListPosition: Int): Long {
@@ -28,30 +29,30 @@ class ExpandableListAdapter(
         listPosition: Int, expandedListPosition: Int,
         isLastChild: Boolean, convertView: View?, parent: ViewGroup?
     ): View? {
-        var convertView: View? = convertView
+        var view = convertView
 
         val expandedListText =
             getChild(listPosition, expandedListPosition) as String
 
         val layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            convertView = layoutInflater.inflate(R.layout.item_expandable_item, null)
+            view = layoutInflater.inflate(R.layout.item_expandable_item, null)
 
-        val expandedListTextView = convertView?.findViewById(R.id.title) as TextView
+        val expandedListTextView = view?.findViewById(R.id.title) as TextView
             expandedListTextView.text = expandedListText
 
-        return convertView
+        return view
     }
 
     override fun getChildrenCount(listPosition: Int): Int {
-        return expandableListDetail[expandableListTitle[listPosition]]!!.size
+        return expandableList[listPosition].listChild.size
     }
 
-    override fun getGroup(listPosition: Int): Any {
-        return expandableListTitle[listPosition]
+    override fun getGroup(listPosition: Int): ExpandableGroupParent {
+        return expandableList[listPosition]
     }
 
     override fun getGroupCount(): Int {
-        return expandableListTitle.size
+        return expandableList.size
     }
 
     override fun getGroupId(listPosition: Int): Long {
@@ -62,17 +63,21 @@ class ExpandableListAdapter(
         listPosition: Int, isExpanded: Boolean,
         convertView: View?, parent: ViewGroup?
     ): View? {
-        var convertView: View? = convertView
-        val listTitle = getGroup(listPosition) as String
-        if (convertView == null) {
+        var view: View? = convertView
+        val listTitle = getGroup(listPosition).title
+        val listImage = getGroup(listPosition).image
+        if (view == null) {
             val layoutInflater =
                 context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            convertView = layoutInflater.inflate(R.layout.item_expandable_group, null)
+            view = layoutInflater.inflate(R.layout.item_expandable_group, null)
         }
-        val listTitleTextView = convertView?.findViewById(R.id.title) as TextView
+        val listTitleTextView = view?.findViewById(R.id.title) as TextView
         listTitleTextView.setTypeface(null, Typeface.BOLD)
         listTitleTextView.text = listTitle
-        return convertView
+
+        val listTileImageView = view!!.findViewById(R.id.image) as ImageView
+        listTileImageView.setImageResource(listImage)
+        return view
     }
 
 
