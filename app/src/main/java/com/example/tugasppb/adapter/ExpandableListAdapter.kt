@@ -1,7 +1,6 @@
-package com.example.tugasppb.adapters
+package com.example.tugasppb.adapter
 
 import android.content.Context
-import android.content.res.Resources
 import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +8,8 @@ import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.res.ResourcesCompat
 import com.example.tugasppb.R
-import com.example.tugasppb.models.ExpandableGroupParent
+import com.example.tugasppb.model.ExpandableGroupParent
 
 class ExpandableListAdapter(
     val context: Context,

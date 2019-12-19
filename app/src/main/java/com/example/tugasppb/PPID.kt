@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.widget.ExpandableListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.tugasppb.adapters.ExpandableListAdapter
+import com.example.tugasppb.adapter.ExpandableListAdapter
 import com.example.tugasppb.data.ExpandablePpid
-import com.example.tugasppb.models.ExpandableGroupParent
+import com.example.tugasppb.model.ExpandableGroupParent
 
 
 class PPID : AppCompatActivity() {

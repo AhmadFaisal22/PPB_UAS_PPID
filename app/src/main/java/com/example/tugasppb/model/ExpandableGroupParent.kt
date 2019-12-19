@@ -1,3 +1,3 @@
-package com.example.tugasppb.models
+package com.example.tugasppb.model
 
 data class ExpandableGroupParent(val title:String,val image:Int,val listChild:ArrayList<String>)
