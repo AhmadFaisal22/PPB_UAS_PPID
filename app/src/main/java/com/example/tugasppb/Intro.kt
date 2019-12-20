@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
-import com.example.tugasppb.Tools.PrefManager
+import com.example.tugasppb.utils.PrefManager
 import kotlinx.android.synthetic.main.activity_intro.*
 
 class Intro : AppCompatActivity() {

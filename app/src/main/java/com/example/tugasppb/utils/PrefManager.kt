@@ -1,4 +1,4 @@
-package com.example.tugasppb.Tools
+package com.example.tugasppb.utils
 
 import android.content.Context
 import android.content.SharedPreferences

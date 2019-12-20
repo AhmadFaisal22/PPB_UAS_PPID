@@ -1,4 +1,4 @@
-package com.example.tugasppb.data
+package com.example.tugasppb.static_data
 
 import com.example.tugasppb.R
 import com.example.tugasppb.model.ExpandableGroupParent
