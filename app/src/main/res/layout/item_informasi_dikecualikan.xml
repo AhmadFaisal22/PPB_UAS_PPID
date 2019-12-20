@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingTop="10dp"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:paddingHorizontal="20dp"
+    >
 
+    <TextView
+        android:textSize="13dp"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center"
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PPID Dinas Komunikasi Informatika Provinsi Jawa Tengah Telah Melakukan Uji Konsekuensi Informasi Publik Pada" />
+
+    <TextView
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="16dp"
+        android:id="@+id/textView4"
+        android:textSize="13dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tanggal 25 April 2019" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_border_blue"
+        android:text="Button"
+        android:textColor="@color/colorPrimary" />
+
+    <View
+        android:layout_marginTop="10dp"
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
 </LinearLayout>
