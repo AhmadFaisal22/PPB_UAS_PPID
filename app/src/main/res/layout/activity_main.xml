@@ -10,26 +10,26 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:layout_width="215dp"
-            android:layout_height="52dp"
-            android:layout_marginLeft="190dp"
+            android:layout_width="199dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="185dp"
             android:layout_marginTop="580dp"
             android:gravity="center"
             android:text="Survei Indeks Kepuasan Masyarakat"
             android:textColor="@color/colorPrimary"
-            android:textSize="20dp"
+            android:textSize="19dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="47dp"
+            android:layout_marginLeft="43dp"
             android:layout_marginTop="580dp"
             android:gravity="center"
             android:text="Layanan Internal"
             android:textColor="@color/colorPrimary"
-            android:textSize="20dp"
+            android:textSize="19dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,7 +41,7 @@
             android:gravity="center"
             android:text="Sistem Pemerintahan Berbasis Eletronik"
             android:textColor="@color/colorPrimary"
-            android:textSize="20dp"
+            android:textSize="19dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -61,16 +61,17 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:onClick="clickMenu"
                 android:id="@+id/profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="25dp"
+                android:layout_marginRight="27dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="119dp"
+                    android:layout_height="119dp"
                     android:src="@drawable/ic_home_profile" />
 
                 <TextView
@@ -78,20 +79,21 @@
                     android:layout_height="wrap_content"
                     android:text="Profil"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="23dp" />
+                    android:textSize="19dp" />
             </LinearLayout>
 
             <LinearLayout
+                android:onClick="clickMenu"
                 android:id="@+id/berita"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="27dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="119dp"
+                    android:layout_height="119dp"
                     android:src="@drawable/ic_home_berita" />
 
                 <TextView
@@ -99,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:text="Berita"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="23dp" />
+                    android:textSize="19dp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -110,16 +112,17 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:onClick="clickMenu"
                 android:id="@+id/ppid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="25dp"
+                android:layout_marginRight="27dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="119dp"
+                    android:layout_height="119dp"
                     android:src="@drawable/ic_home_ppid" />
 
                 <TextView
@@ -127,20 +130,21 @@
                     android:layout_height="wrap_content"
                     android:text="PPID"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="23dp" />
+                    android:textSize="19dp" />
             </LinearLayout>
 
             <LinearLayout
+                android:onClick="clickMenu"
                 android:id="@+id/spbe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="27dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="119dp"
+                    android:layout_height="119dp"
                     android:src="@drawable/ic_home_spbe" />
 
             </LinearLayout>
@@ -153,31 +157,33 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:onClick="clickMenu"
                 android:id="@+id/layanan_internal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="25dp"
+                android:layout_marginRight="27dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="119dp"
+                    android:layout_height="119dp"
                     android:src="@drawable/ic_home_layanan_internal" />
 
             </LinearLayout>
 
             <LinearLayout
+                android:onClick="clickMenu"
                 android:id="@+id/sikm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="27dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="119dp"
+                    android:layout_height="119dp"
                     android:src="@drawable/ic_home_sikm" />
 
             </LinearLayout>
