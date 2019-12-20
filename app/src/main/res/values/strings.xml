@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Tugas PPB</string>
+    <string name="next">LANJUT</string>
+    <string name="skip">LEWATI</string>
+    <string name="start">KE APLIKASI</string>
+
+    <string name="slide_1_title">Selamat Datang!</string>
+    <string name="slide_1_desc">Dengan aplikasi ini anda dapat update berita di Jawa Tengah</string>
+
+    <string name="slide_2_title">Kemudahan Informasi</string>
+    <string name="slide_2_desc">Dengan aplikasi ini anda dapat update berita perkembangan teknologi di Jawa Tengah</string>
+
+    <string name="slide_3_title">Selamat Datang!</string>
+    <string name="slide_3_desc">Dengan aplikasi ini anda dapat update berita di Jawa Tengah</string>
+
 </resources>

@@ -6,4 +6,6 @@
     <color name="colorLightPrimary">#F0F5FB</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="dot_dark">#2278d4</color>
+    <color name="dot_light">#93c6fd</color>
 </resources>

@@ -16,7 +16,7 @@ class PPID : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ppid)
-        expandableListView = findViewById(R.id.expandableList) as ExpandableListView
+        expandableListView = findViewById<ExpandableListView>(R.id.expandableList)
         expandableList = ExpandablePpid.data
         expandableListAdapter = ExpandableListAdapter(
             this,
