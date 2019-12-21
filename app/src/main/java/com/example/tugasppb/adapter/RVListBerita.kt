@@ -9,6 +9,7 @@ import com.example.tugasppb.R
 import com.example.tugasppb.model.ListBerita
 import kotlinx.android.synthetic.main.item_berita.view.*
 
+
 class RVListBerita(
     val context: Context,
     private val myDataset: ArrayList<ListBerita>
@@ -29,6 +30,17 @@ class RVListBerita(
             .inflate(R.layout.item_berita, parent, false)
         return MyViewHolder(view)
     }
+
+//    fun removeItem(position: Int) {
+//        myDataset.removeAt(position)
+//        notifyItemRemoved(position)
+//    }
+//
+//    fun restoreItem(item: ListBerita, position: Int) {
+//        myDataset.add(position, item)
+//        notifyItemInserted(position)
+//    }
+
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) = holder.bindData(myDataset[position])
     override fun getItemCount() = myDataset.size
 }
