@@ -1,3 +1,3 @@
 package com.example.tugasppb.model
 
-data class MenyikapiHoax(val title:String,val desc:String);
+data class MenyikapiHoax(var title:String,var desc:String);
