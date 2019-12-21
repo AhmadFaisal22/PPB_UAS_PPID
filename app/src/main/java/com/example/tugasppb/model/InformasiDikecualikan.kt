@@ -1,3 +1,5 @@
 package com.example.tugasppb.model
 
-class InformasiDikecualikan (val title:String,val date:String);
+import java.io.Serializable
+
+class InformasiDikecualikan (val title:String,val date:String): Serializable
