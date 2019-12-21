@@ -2,6 +2,7 @@ package com.example.tugasppb.static_data
 
 import com.example.tugasppb.R
 import com.example.tugasppb.model.ExpandableGroupParent
+import com.example.tugasppb.model.ListItem
 import kotlin.collections.ArrayList
 
 
@@ -10,18 +11,18 @@ object ExpandablePpid {
         get() {
             val expandableListDetail =
                 ArrayList<ExpandableGroupParent>()
-            val infoPublick: ArrayList<String> =
+            val infoPublick: ArrayList<ListItem> =
                 ArrayList()
-            infoPublick.add("Informasi Berkala")
-            infoPublick.add("Informasi Serta Merta")
-            infoPublick.add("Informasi Setiap Saat")
-            infoPublick.add("Informasi Dikecualikan")
-            val layanan: ArrayList<String> =
+            infoPublick.add(ListItem("Informasi Berkala",true))
+            infoPublick.add(ListItem("Informasi Serta Merta",true))
+            infoPublick.add(ListItem("Informasi Setiap Saat",true))
+            infoPublick.add(ListItem("Informasi Dikecualikan",true))
+            val layanan: ArrayList<ListItem> =
                 ArrayList()
-            layanan.add("Mekanisme Permohonan Informasi")
-            layanan.add("Keberatan Informasi")
-            layanan.add("Mekanisme Pengajuan Penyelesaian Sengketa Informasi")
-            layanan.add("Tata Cara Pengaduan Perilaku ASN")
+            layanan.add(ListItem("Mekanisme Permohonan Informasi",false))
+            layanan.add(ListItem("Keberatan Informasi",false))
+            layanan.add(ListItem("Mekanisme Pengajuan Penyelesaian Sengketa Informasi",false))
+            layanan.add(ListItem("Tata Cara Pengaduan Perilaku ASN",false))
 
             expandableListDetail.add(
                 ExpandableGroupParent(

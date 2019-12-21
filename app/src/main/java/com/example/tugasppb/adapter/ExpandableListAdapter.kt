@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.tugasppb.R
 import com.example.tugasppb.model.ExpandableGroupParent
+import com.example.tugasppb.model.ListItem
 
 class ExpandableListAdapter(
     val context: Context,
@@ -29,15 +30,21 @@ class ExpandableListAdapter(
     ): View? {
         var view = convertView
 
-        val expandedListText =
-            getChild(listPosition, expandedListPosition) as String
+        val expandedList =
+            getChild(listPosition, expandedListPosition) as ListItem
 
         val layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             view = layoutInflater.inflate(R.layout.item_expandable_item, null)
 
         val expandedListTextView = view?.findViewById(R.id.title) as TextView
-            expandedListTextView.text = expandedListText
+            expandedListTextView.text = expandedList.title
 
+        val expandedListIcon = view?.findViewById<ImageView>(R.id.sub)
+            if(expandedList.sub){
+                expandedListIcon.visibility = View.VISIBLE
+            }else{
+                expandedListIcon.visibility = View.INVISIBLE
+            }
         return view
     }
 
