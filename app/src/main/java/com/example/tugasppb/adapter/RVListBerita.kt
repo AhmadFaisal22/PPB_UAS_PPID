@@ -30,6 +30,7 @@ class RVListBerita(
             }
         }
     }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -38,16 +39,6 @@ class RVListBerita(
             .inflate(R.layout.item_berita, parent, false)
         return MyViewHolder(view)
     }
-
-//    fun removeItem(position: Int) {
-//        myDataset.removeAt(position)
-//        notifyItemRemoved(position)
-//    }
-//
-//    fun restoreItem(item: ListBerita, position: Int) {
-//        myDataset.add(position, item)
-//        notifyItemInserted(position)
-//    }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) = holder.bindData(myDataset[position])
     override fun getItemCount() = myDataset.size

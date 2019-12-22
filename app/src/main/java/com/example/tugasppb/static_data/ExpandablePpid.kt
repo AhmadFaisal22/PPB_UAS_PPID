@@ -5,7 +5,6 @@ import com.example.tugasppb.model.ExpandableGroupParent
 import com.example.tugasppb.model.ListItem
 import kotlin.collections.ArrayList
 
-
 object ExpandablePpid {
     val data: ArrayList<ExpandableGroupParent>
         get() {

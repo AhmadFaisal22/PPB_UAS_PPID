@@ -1,9 +1,13 @@
 package com.example.tugasppb.static_data
 
+import com.example.tugasppb.model.ListItem
+
 object ListInfoBerkala {
-    val data:ArrayList<String>
+    val data:ArrayList<ListItem>
         get() {
-            data.add("Informasi tentang Profile Badan Public")
-            return data
+            val tempData = ArrayList<ListItem>()
+            tempData.add(ListItem("Informasi tentang Profile Badan Public",true))
+            tempData.add(ListItem("Ringkasan Program & Kegiatan yang sedang dijalankan Dinas Komunikasi dan Informatika Provinsi Jawa Tengah",true))
+            return tempData
         }
 }

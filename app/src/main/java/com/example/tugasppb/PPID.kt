@@ -1,5 +1,6 @@
 package com.example.tugasppb
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ExpandableListView
 import android.widget.Toast
@@ -23,20 +24,16 @@ class PPID : AppCompatActivity() {
             expandableList!!
         )
         expandableListView!!.setAdapter(expandableListAdapter)
-        expandableListView!!.setOnGroupExpandListener { groupPosition ->
-            Toast.makeText(
-                applicationContext,
-                expandableList!!.get(groupPosition).title + " List Expanded.",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
+//        expandableListView!!.setOnGroupExpandListener { groupPosition -> }
         expandableListView!!.setOnChildClickListener { parent, v, groupPosition, childPosition, id ->
-            Toast.makeText(
-                applicationContext,
-                expandableList!![groupPosition].title + " -> "
-                        + expandableList!![groupPosition].listChild[childPosition],
-                Toast.LENGTH_SHORT
-            ).show()
+            if (groupPosition == 0) {
+                when (childPosition) {
+                    0 -> startActivity(Intent(this, PpidInfoPublicBerkala::class.java))
+                    else -> Toast.makeText(this, "message", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+
+            }
             false
         }
     }
