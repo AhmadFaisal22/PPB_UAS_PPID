@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.item_berita.view.*
 class RVListBerita(
     val context: Context,
     private val myDataset: ArrayList<ListBerita>
-    ) :
+) :
     RecyclerView.Adapter<RVListBerita.MyViewHolder>() {
     inner class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         fun bindData(item: ListBerita) {
@@ -24,9 +24,11 @@ class RVListBerita(
             view.date.text = item.date
             view.image.setImageResource(item.image)
             view.setOnClickListener {
-                val page = Intent(context,
-                    BeritaDetail::class.java)
-                page.putExtra("data",item)
+                val page = Intent(
+                    context,
+                    BeritaDetail::class.java
+                )
+                page.putExtra("data", item)
                 context.startActivity(page)
             }
         }
@@ -41,7 +43,18 @@ class RVListBerita(
         return MyViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) = holder.bindData(myDataset[position])
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) =
+        holder.bindData(myDataset[position])
+
     override fun getItemCount() = myDataset.size
+
+    fun removeItem(position: Int) {
+        myDataset.removeAt(position)
+        notifyItemRemoved(position)
+    }
+    fun restoreItem(item :ListBerita,position: Int){
+        myDataset.add(item)
+        notifyItemInserted(position)
+    }
 }
 
