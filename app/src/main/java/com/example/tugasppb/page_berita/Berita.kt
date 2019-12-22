@@ -1,10 +1,10 @@
-package com.example.tugasppb
+package com.example.tugasppb.page_berita
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tugasppb.R
 import com.example.tugasppb.adapter.RVListBerita
 import com.example.tugasppb.model.ListBerita
 import kotlinx.android.synthetic.main.activity_berita.*

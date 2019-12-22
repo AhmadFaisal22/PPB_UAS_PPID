@@ -9,32 +9,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PpidInfoPublicSetiapSaat"></activity>
+        <activity android:name=".page_ppid.PpidInfoPublicSetiapSaat"></activity>
         <activity
-            android:name=".PpidInfoPublicSertamertaTipsMenyikapiHoax"
+            android:name=".page_ppid.PpidInfoPublicSertamertaTipsMenyikapiHoax"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".PpidInfoPublicSertamerta"
+            android:name=".page_ppid.PpidInfoPublicSertamerta"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".PpidInfoPublicBerkalaRingkasan"
+            android:name=".page_ppid.PpidInfoPublicBerkalaRingkasan"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".PpidInfoPublicBerkalaProfile"
+            android:name=".page_ppid.PpidInfoPublicBerkalaProfile"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".PpidInfoPublicBerkala"
+            android:name=".page_ppid.PpidInfoPublicBerkala"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".BeritaDetail"
+            android:name=".page_berita.BeritaDetail"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".Intro"
             android:theme="@style/NoAppbar" />
         <activity
-            android:name=".Berita"
+            android:name=".page_berita.Berita"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity android:name=".PPID" />
+        <activity android:name=".page_ppid.PPID" />
         <activity android:name=".Home" />
         <activity android:name=".MainActivity" />
         <activity

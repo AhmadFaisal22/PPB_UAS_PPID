@@ -1,8 +1,9 @@
-package com.example.tugasppb
+package com.example.tugasppb.page_ppid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.tugasppb.R
 import com.example.tugasppb.adapter.LVSimpleList
 import com.example.tugasppb.static_data.ListInfoBerkalaProfileBadanPublik
 import kotlinx.android.synthetic.main.activity_ppid_info_public_berkala_profile.*

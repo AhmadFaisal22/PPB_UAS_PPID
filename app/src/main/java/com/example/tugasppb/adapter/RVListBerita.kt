@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tugasppb.BeritaDetail
+import com.example.tugasppb.page_berita.BeritaDetail
 import com.example.tugasppb.R
 import com.example.tugasppb.model.ListBerita
 import kotlinx.android.synthetic.main.item_berita.view.*
@@ -24,7 +24,8 @@ class RVListBerita(
             view.date.text = item.date
             view.image.setImageResource(item.image)
             view.setOnClickListener {
-                val page = Intent(context,BeritaDetail::class.java)
+                val page = Intent(context,
+                    BeritaDetail::class.java)
                 page.putExtra("data",item)
                 context.startActivity(page)
             }
