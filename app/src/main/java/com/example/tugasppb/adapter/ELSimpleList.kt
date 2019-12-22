@@ -12,7 +12,7 @@ import com.example.tugasppb.R
 import com.example.tugasppb.model.ExpandableGroupParent
 import com.example.tugasppb.model.ListItem
 
-class ExpandableListAdapter(
+class ELSimpleList(
     val context: Context,
     val expandableList: ArrayList<ExpandableGroupParent>
     ) : BaseExpandableListAdapter() {
