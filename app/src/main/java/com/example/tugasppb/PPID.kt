@@ -29,6 +29,7 @@ class PPID : AppCompatActivity() {
             if (groupPosition == 0) {
                 when (childPosition) {
                     0 -> startActivity(Intent(this, PpidInfoPublicBerkala::class.java))
+                    1 -> startActivity(Intent(this, PpidInfoPublicSertamerta::class.java))
                     else -> Toast.makeText(this, "message", Toast.LENGTH_SHORT).show()
                 }
             } else {

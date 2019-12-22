@@ -3,16 +3,17 @@ package com.example.tugasppb.static_data
 import com.example.tugasppb.model.ListItem
 
 object ListInfoBerkalaRingkasanProgramdanKegiatan {
-    val data:ArrayList<ListItem>
+    val data: ArrayList<ListItem>
         get() {
-            data.add(ListItem("Rencana Kerja Operasional",false))
-            data.add(ListItem("Agenda Kerja Dinas",false))
-            data.add(ListItem("Kerangka Acuan Kerja",false))
-            data.add(ListItem("Perjanjian Kinerja",true))
-            data.add(ListItem("Rencana Strategis",true))
-            data.add(ListItem("Rencana Kinerja Tahunan",false))
-            data.add(ListItem("Cascading",false))
-            data.add(ListItem("Indikator Kinerja Utama",false))
-            return data
+            var dataTemp = ArrayList<ListItem>()
+            dataTemp.add(ListItem("Rencana Kerja Operasional", false))
+            dataTemp.add(ListItem("Agenda Kerja Dinas", false))
+            dataTemp.add(ListItem("Kerangka Acuan Kerja", false))
+            dataTemp.add(ListItem("Perjanjian Kinerja", true))
+            dataTemp.add(ListItem("Rencana Strategis", true))
+            dataTemp.add(ListItem("Rencana Kinerja Tahunan", false))
+            dataTemp.add(ListItem("Cascading", false))
+            dataTemp.add(ListItem("Indikator Kinerja Utama", false))
+            return dataTemp
         }
 }

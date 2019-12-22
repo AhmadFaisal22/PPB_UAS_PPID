@@ -9,7 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PpidInfoPublicBerkalaProfile"></activity>
+        <activity android:name=".PpidInfoPublicSetiapSaat"></activity>
+        <activity
+            android:name=".PpidInfoPublicSertamertaTipsMenyikapiHoax"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".PpidInfoPublicSertamerta"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".PpidInfoPublicBerkalaRingkasan"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".PpidInfoPublicBerkalaProfile"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".PpidInfoPublicBerkala"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />

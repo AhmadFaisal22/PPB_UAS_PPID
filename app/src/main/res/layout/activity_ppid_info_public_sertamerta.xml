@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".PpidInfoPublicBerkalaProfile">
+    tools:context=".PpidInfoPublicSertamerta">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -14,7 +14,7 @@
         android:background="@color/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ToolbarColoredBackArrow"
-        app:title="INFORMASI TENTANG PROFIL BADAN PUBLIK"
+        app:title="INFORMASI SERTA MERTA"
         app:titleTextColor="@color/colorWhite" />
 
     <ListView

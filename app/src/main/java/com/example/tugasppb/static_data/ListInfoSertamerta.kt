@@ -5,7 +5,8 @@ import com.example.tugasppb.model.ListItem
 object ListInfoSertamerta {
     val data:ArrayList<ListItem>
         get() {
-            data.add(ListItem("Tips Menyikapi Hoax",false))
-            return data
+            var dataTemp = ArrayList<ListItem>()
+            dataTemp.add(ListItem("Tips Menyikapi Hoax",false))
+            return dataTemp
         }
 }

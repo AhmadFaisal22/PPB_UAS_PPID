@@ -11,7 +11,7 @@ class PpidInfoPublicBerkalaProfile : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ppid_info_public_berkala)
+        setContentView(R.layout.activity_ppid_info_public_berkala_profile)
         setToolbar()
         listView.adapter = LVSimpleList(
             this,

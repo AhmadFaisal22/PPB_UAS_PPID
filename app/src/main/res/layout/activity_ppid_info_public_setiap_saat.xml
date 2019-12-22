@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".PpidInfoPublicBerkalaProfile">
-
+    tools:context=".PpidInfoPublicSetiapSaat">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -14,11 +13,8 @@
         android:background="@color/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ToolbarColoredBackArrow"
-        app:title="INFORMASI TENTANG PROFIL BADAN PUBLIK"
+        app:title="INFORMASI SETIAP SAAT"
         app:titleTextColor="@color/colorWhite" />
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+
 </LinearLayout>

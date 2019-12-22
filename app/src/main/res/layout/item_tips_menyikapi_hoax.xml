@@ -1,37 +1,46 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingHorizontal="5dp"
-    android:layout_marginTop="5dp"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:paddingTop="5dp"
+    >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:paddingTop="2dp"
-        android:paddingVertical="3dp"
-        android:paddingHorizontal="5dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="13dp"
-        android:background="@drawable/bg_border_grey"
-        android:orientation="vertical" >
-        <TextView
-            android:textSize="12dp"
-            android:id="@+id/desc"
+        android:orientation="vertical"
+        android:paddingHorizontal="5dp">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="desc" />
-    </LinearLayout>
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_border_grey"
+            android:orientation="vertical"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="3dp">
 
-    <TextView
-        android:id="@+id/title"
-        android:textSize="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:background="@color/colorWhite"
-        android:layout_marginLeft="10dp"
-        android:textColor="@color/colorPrimary"
-        android:text="title"/>
-</RelativeLayout>
+            <TextView
+                android:id="@+id/desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="desc"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:background="@color/colorWhite"
+            android:text="title"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15dp" />
+
+    </RelativeLayout>
+</LinearLayout>

@@ -3,16 +3,17 @@ package com.example.tugasppb.static_data
 import com.example.tugasppb.model.ListItem
 
 object ListInfoBerkalaProfileBadanPublik {
-    val data:ArrayList<ListItem>
+    val data: ArrayList<ListItem>
         get() {
-            data.add(ListItem("Kedudukan Berdasarkan Alamat Lengkap",false))
-            data.add(ListItem("Visi dan Misi",false))
-            data.add(ListItem("Tugas dan Fungsi",false))
-            data.add(ListItem("Struktur Organisasi",true))
-            data.add(ListItem("Layanan Publik",false))
-            data.add(ListItem("Profil Singkat Pejabat Struktural",true))
-            data.add(ListItem("LHKPN",true))
-            data.add(ListItem("Profil Singkat Kepegawaian",false))
-            return data
+            var dataTemp = ArrayList<ListItem>()
+            dataTemp.add(ListItem("Kedudukan Berdasarkan Alamat Lengkap", false))
+            dataTemp.add(ListItem("Visi dan Misi", false))
+            dataTemp.add(ListItem("Tugas dan Fungsi", false))
+            dataTemp.add(ListItem("Struktur Organisasi", true))
+            dataTemp.add(ListItem("Layanan Publik", false))
+            dataTemp.add(ListItem("Profil Singkat Pejabat Struktural", true))
+            dataTemp.add(ListItem("LHKPN", true))
+            dataTemp.add(ListItem("Profil Singkat Kepegawaian", false))
+            return dataTemp
         }
 }
