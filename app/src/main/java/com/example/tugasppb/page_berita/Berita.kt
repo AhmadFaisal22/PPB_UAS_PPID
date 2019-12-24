@@ -81,7 +81,7 @@ class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
             var deleteItem: Int = viewHolder.adapterPosition
             Toast.makeText(this, "Delete " + title, Toast.LENGTH_SHORT).show()
             viewAdapter.removeItem(deleteItem)
-            setRecycleLayout()
+//            setRecycleLayout()
         }
     }
 
