@@ -12,6 +12,7 @@ import com.example.tugasppb.adapter.RVListBerita
 import com.example.tugasppb.model.ListBerita
 import com.example.tugasppb.utils.RecycleItemTouchHelper
 import com.example.tugasppb.utils.RecyclerItemHelperTouchHelperListener
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_berita.*
 
 class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
@@ -26,7 +27,10 @@ class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
         setToolbar()
         init()
         setRecycleLayout()
-
+        fabAdd.setOnClickListener {
+            var bottomDialog: BeritaForm = BeritaForm()
+            bottomDialog.show(supportFragmentManager,"Test")
+        }
     }
 
     private fun init() {
@@ -75,7 +79,7 @@ class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
         if (viewHolder is RVListBerita.MyViewHolder) {
             var title: String = listBerita.get(viewHolder.adapterPosition).title
             var deleteItem: Int = viewHolder.adapterPosition
-            Toast.makeText(this,"Delete "+title,Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Delete " + title, Toast.LENGTH_SHORT).show()
             viewAdapter.removeItem(deleteItem)
             setRecycleLayout()
         }

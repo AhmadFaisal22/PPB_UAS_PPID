@@ -25,11 +25,6 @@ class RecycleItemTouchHelper(
         listener?.onSwiped(viewHolder, direction, viewHolder.adapterPosition)
     }
 
-//    override fun clearView(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder) {
-//        val foregroundView: View = (viewHolder as RVListBerita.MyViewHolder).view.view_foregound
-//        getDefaultUIUtil().clearView(foregroundView)
-//    }
-
     override fun onChildDraw(
         c: Canvas,
         recyclerView: RecyclerView,
@@ -50,7 +45,12 @@ class RecycleItemTouchHelper(
             isCurrentlyActive
         )
     }
-//
+
+//    override fun clearView(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder) {
+//        val foregroundView: View = (viewHolder as RVListBerita.MyViewHolder).view.view_foregound
+//        getDefaultUIUtil().clearView(foregroundView)
+//    }
+
 //    override fun onChildDrawOver(
 //        c: Canvas,
 //        recyclerView: RecyclerView,

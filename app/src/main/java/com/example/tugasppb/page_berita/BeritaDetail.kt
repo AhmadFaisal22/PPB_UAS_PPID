@@ -2,6 +2,9 @@ package com.example.tugasppb.page_berita
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.TextView
 import com.example.tugasppb.R
 import com.example.tugasppb.model.ListBerita
@@ -15,14 +18,14 @@ class BeritaDetail : AppCompatActivity() {
         setToolbar()
         setToLayout()
     }
-    fun setToolbar() {
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-    }
-
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return super.onSupportNavigateUp()
+    }
+
+    fun setToolbar() {
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     fun setToLayout(){
