@@ -1,5 +1,6 @@
 package com.example.tugasppb.page_berita
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -33,7 +34,7 @@ class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
                     viewAdapter.addItem(item)
                     Snackbar.make(coordinator, "Sukses Menambahkan", Snackbar.LENGTH_SHORT).show()
                 }
-            )
+                , "Tambah Berita")
             bottomDialog.show(supportFragmentManager, bottomDialog.tag)
         }
     }
@@ -89,5 +90,12 @@ class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
+        val dateChange = data!!.getSerializableExtra("data") as ListBerita
+        val position = data!!.getIntExtra("position", 0)
+
+        viewAdapter.changeItem(dateChange, position)
+    }
 
 }

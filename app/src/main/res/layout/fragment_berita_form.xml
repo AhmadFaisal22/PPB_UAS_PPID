@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:text="Tambah Berita"
         android:textSize="17dp"
+        android:id="@+id/formTitle"
         android:fontFamily="@font/segoe_ui_font"
         android:textColor="@color/colorPrimary"
         android:layout_marginBottom="20dp"

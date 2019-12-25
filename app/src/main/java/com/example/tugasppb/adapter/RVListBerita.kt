@@ -1,5 +1,6 @@
 package com.example.tugasppb.adapter
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -18,7 +19,7 @@ class RVListBerita(
 ) :
     RecyclerView.Adapter<RVListBerita.MyViewHolder>() {
     inner class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        fun bindData(item: ListBerita) {
+        fun bindData(item: ListBerita, position: Int) {
             view.title.text = item.title
             view.desc.text = item.desc
             view.date.text = item.date
@@ -29,7 +30,8 @@ class RVListBerita(
                     BeritaDetail::class.java
                 )
                 page.putExtra("data", item)
-                context.startActivity(page)
+                page.putExtra("position", position)
+                (context as Activity).startActivityForResult(page, 1)
             }
         }
     }
@@ -44,7 +46,7 @@ class RVListBerita(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) =
-        holder.bindData(myDataset[position])
+        holder.bindData(myDataset[position], position)
 
     override fun getItemCount() = myDataset.size
 
@@ -61,6 +63,11 @@ class RVListBerita(
     fun addItem(item: ListBerita) {
         myDataset.add(item)
         notifyDataSetChanged()
+    }
+
+    fun changeItem(item: ListBerita, position: Int) {
+        myDataset[position] = item
+        notifyItemChanged(position)
     }
 }
 

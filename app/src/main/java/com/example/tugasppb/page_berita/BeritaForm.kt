@@ -2,7 +2,9 @@ package com.example.tugasppb.page_berita
 
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.text.Editable
 import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,14 +13,19 @@ import com.example.tugasppb.R
 import com.example.tugasppb.model.ListBerita
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_berita_detail.*
 import kotlinx.android.synthetic.main.fragment_berita_form.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 
-class BeritaForm(val simpan: (item: ListBerita) -> Unit) : BottomSheetDialogFragment() {
+class BeritaForm(
+    val simpan: (item: ListBerita) -> Unit,
+    val title: String,
+    val dataPayload: ListBerita? = null
+) :
+    BottomSheetDialogFragment() {
     var myCalendar: Calendar = Calendar.getInstance()
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,15 +34,18 @@ class BeritaForm(val simpan: (item: ListBerita) -> Unit) : BottomSheetDialogFrag
         return inflater.inflate(R.layout.fragment_berita_form, container, false)
     }
 
-    private fun updateLabel() {
-        val myFormat = "E ,dd-MMM-yyyy"
-        val sdf = SimpleDateFormat(myFormat, Locale.US)
-        etDate.setText(sdf.format(myCalendar.time))
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         updateLabel()
+        formTitle.text = title
+
+        if (dataPayload != null) {
+            etTitle.setText(dataPayload!!.title)
+            etDesc.setText(dataPayload!!.desc)
+            etDate.setText(dataPayload!!.date)
+//            image.setImageResource(dataPayload!!.image)
+        }
+
         var date = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
             myCalendar.set(Calendar.YEAR, year);
             myCalendar.set(Calendar.MONTH, month);
@@ -56,7 +66,7 @@ class BeritaForm(val simpan: (item: ListBerita) -> Unit) : BottomSheetDialogFrag
         }
         btnSimpan.setOnClickListener {
             if (TextUtils.isEmpty(etTitle.text.toString())) {
-                Toast.makeText(context!!,"Title tidak boloh kosong !",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context!!, "Title tidak boloh kosong !", Toast.LENGTH_SHORT).show()
             } else {
                 simpan(
                     ListBerita(
@@ -71,5 +81,10 @@ class BeritaForm(val simpan: (item: ListBerita) -> Unit) : BottomSheetDialogFrag
         }
     }
 
+    private fun updateLabel() {
+        val myFormat = "E ,dd-MMM-yyyy"
+        val sdf = SimpleDateFormat(myFormat, Locale.US)
+        etDate.setText(sdf.format(myCalendar.time))
+    }
 
 }
