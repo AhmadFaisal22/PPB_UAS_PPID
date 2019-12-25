@@ -17,10 +17,10 @@ import kotlinx.android.synthetic.main.activity_berita.*
 
 class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
     var listBerita = ArrayList<ListBerita>()
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var viewAdapter: RVListBerita
-    private lateinit var viewManager: RecyclerView.LayoutManager
-
+    lateinit var recyclerView: RecyclerView
+    lateinit var viewAdapter: RVListBerita
+    lateinit var viewManager: RecyclerView.LayoutManager
+    lateinit var bottomDialog: BeritaForm
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_berita)
@@ -28,8 +28,13 @@ class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
         init()
         setRecycleLayout()
         fabAdd.setOnClickListener {
-            var bottomDialog: BeritaForm = BeritaForm()
-            bottomDialog.show(supportFragmentManager,"Test")
+            bottomDialog = BeritaForm(
+                { item: ListBerita ->
+                    viewAdapter.addItem(item)
+                    Snackbar.make(coordinator, "Sukses Menambahkan", Snackbar.LENGTH_SHORT).show()
+                }
+            )
+            bottomDialog.show(supportFragmentManager, bottomDialog.tag)
         }
     }
 
@@ -81,7 +86,6 @@ class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
             var deleteItem: Int = viewHolder.adapterPosition
             Toast.makeText(this, "Delete " + title, Toast.LENGTH_SHORT).show()
             viewAdapter.removeItem(deleteItem)
-//            setRecycleLayout()
         }
     }
 

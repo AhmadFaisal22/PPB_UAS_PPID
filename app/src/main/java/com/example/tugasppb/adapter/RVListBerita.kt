@@ -52,9 +52,15 @@ class RVListBerita(
         myDataset.removeAt(position)
         notifyItemRemoved(position)
     }
-    fun restoreItem(item :ListBerita,position: Int){
+
+    fun restoreItem(item: ListBerita, position: Int) {
         myDataset.add(item)
         notifyItemInserted(position)
+    }
+
+    fun addItem(item: ListBerita) {
+        myDataset.add(item)
+        notifyDataSetChanged()
     }
 }
 

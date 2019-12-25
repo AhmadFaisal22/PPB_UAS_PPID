@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".page_berita.Berita">
+    tools:context=".page_berita.Berita"
+    android:id="@+id/coordinator">
 
     <LinearLayout
         android:layout_width="match_parent"
