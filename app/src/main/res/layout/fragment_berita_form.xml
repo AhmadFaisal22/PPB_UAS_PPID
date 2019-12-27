@@ -4,19 +4,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp">
+
     <TextView
-        android:textStyle="bold"
+        android:id="@+id/formTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tambah Berita"
-        android:textSize="17dp"
-        android:id="@+id/formTitle"
-        android:fontFamily="@font/segoe_ui_font"
-        android:textColor="@color/colorPrimary"
         android:layout_marginBottom="20dp"
-        ></TextView>
+        android:fontFamily="@font/segoe_ui_font"
+        android:text="Tambah Berita"
+        android:textColor="@color/colorPrimary"
+        android:textSize="17dp"
+        android:textStyle="bold"></TextView>
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ciImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"

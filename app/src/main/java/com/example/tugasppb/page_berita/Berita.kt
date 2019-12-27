@@ -18,9 +18,11 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_berita.*
 
 class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
-    companion object{
+    companion object {
         const val PICK_UPDATE_RESULT = 1
+        const val PICK_IMAGE = 2
     }
+
     var listBerita = ArrayList<ListBerita>()
     lateinit var recyclerView: RecyclerView
     lateinit var viewAdapter: RVListBerita
@@ -49,7 +51,7 @@ class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
                 ListBerita(
                     "Ganjar Minta Menteri Ubah Sistem Zonasi pada PPDB Online",
                     "SEMARANG – Persoalan Penerimaan Peserta Didik Baru (PPDB) online 2019 untuk SMA/SMK menuai bListBeritaak protes dari masyarakat.",
-                    R.drawable.ic_exp_layanan,
+                    "https://homepages.cae.wisc.edu/~ece533/images/airplane.png",
                     "Juni 30, 2019"
                 )
             )
@@ -95,12 +97,17 @@ class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        when(requestCode){
-            PICK_UPDATE_RESULT->{
-                if(resultCode === Activity.RESULT_OK){
+        when (requestCode) {
+            PICK_UPDATE_RESULT -> {
+                if (resultCode === Activity.RESULT_OK) {
                     val dateChange = data!!.getSerializableExtra("data") as ListBerita
                     val position = data!!.getIntExtra("position", 0)
                     viewAdapter.changeItem(dateChange, position)
+                }
+            }
+            PICK_IMAGE -> {
+                data?.let {
+                    bottomDialog.resultPickImage(it)
                 }
             }
         }

@@ -1,6 +1,9 @@
 package com.example.tugasppb.page_berita
 
+import android.app.Activity
 import android.app.DatePickerDialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
@@ -26,6 +29,7 @@ class BeritaForm(
 ) :
     BottomSheetDialogFragment() {
     var myCalendar: Calendar = Calendar.getInstance()
+    var photo: Uri? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -72,13 +76,23 @@ class BeritaForm(
                     ListBerita(
                         etTitle.text.toString(),
                         etDesc.text.toString(),
-                        R.drawable.ic_home_profile,
+                        photo.toString(),
                         etDate.text.toString()
                     )
                 )
                 dismiss()
             }
         }
+        ciImage.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            (context as Activity).startActivityForResult(intent, Berita.PICK_IMAGE)
+        }
+    }
+
+    fun resultPickImage(data: Intent) {
+        photo = data.data
+        ciImage.setImageURI(photo)
     }
 
     private fun updateLabel() {

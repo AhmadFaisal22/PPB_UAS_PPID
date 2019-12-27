@@ -11,6 +11,7 @@ import com.example.tugasppb.page_berita.BeritaDetail
 import com.example.tugasppb.R
 import com.example.tugasppb.model.ListBerita
 import com.example.tugasppb.page_berita.Berita
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_berita.view.*
 
 
@@ -24,7 +25,7 @@ class RVListBerita(
             view.title.text = item.title
             view.desc.text = item.desc
             view.date.text = item.date
-            view.image.setImageResource(item.image)
+            Picasso.get().load(item.image).into(view.image);
             view.setOnClickListener {
                 val page = Intent(
                     context,
