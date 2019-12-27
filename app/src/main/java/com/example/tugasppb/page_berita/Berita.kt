@@ -2,9 +2,10 @@ package com.example.tugasppb.page_berita
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,10 +13,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tugasppb.R
 import com.example.tugasppb.adapter.RVListBerita
 import com.example.tugasppb.model.ListBerita
+import com.example.tugasppb.network.APIUtils
+import com.example.tugasppb.network.BeritaService
 import com.example.tugasppb.utils.RecycleItemTouchHelper
 import com.example.tugasppb.utils.RecyclerItemHelperTouchHelperListener
+import com.example.tugasppb.utils.ThreadPolicy
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_berita.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
     companion object {
@@ -31,9 +39,9 @@ class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_berita)
+        ThreadPolicy.call()
         setToolbar()
         init()
-        setRecycleLayout()
         fabAdd.setOnClickListener {
             bottomDialog = BeritaForm(
                 { item: ListBerita ->
@@ -46,16 +54,34 @@ class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
     }
 
     private fun init() {
-        for (i in 0..9) {
-            listBerita.add(
-                ListBerita(
-                    "Ganjar Minta Menteri Ubah Sistem Zonasi pada PPDB Online",
-                    "SEMARANG – Persoalan Penerimaan Peserta Didik Baru (PPDB) online 2019 untuk SMA/SMK menuai bListBeritaak protes dari masyarakat.",
-                    "https://homepages.cae.wisc.edu/~ece533/images/airplane.png",
-                    "Juni 30, 2019"
-                )
-            )
-        }
+//        for (i in 0..9) {
+//            listBerita.add(
+//                ListBerita(
+//                    "Ganjar Minta Menteri Ubah Sistem Zonasi pada PPDB Online",
+//                    "SEMARANG – Persoalan Penerimaan Peserta Didik Baru (PPDB) online 2019 untuk SMA/SMK menuai bListBeritaak protes dari masyarakat.",
+//                    "https://homepages.cae.wisc.edu/~ece533/images/airplane.png",
+//                    "Juni 30, 2019",
+//                    ""
+//                )
+//            )
+//        }
+//        Log.d("smpesini", "test")
+        APIUtils.getBeritaService.getBerita()!!.enqueue(object : Callback<ArrayList<ListBerita>> {
+
+
+            override fun onFailure(call: Call<ArrayList<ListBerita>>, t: Throwable) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onResponse(
+                call: Call<ArrayList<ListBerita>>,
+                response: Response<ArrayList<ListBerita>>
+            ) {
+                listBerita = response.body()!!
+
+                setRecycleLayout()
+            }
+        })
     }
 
     fun setToolbar() {

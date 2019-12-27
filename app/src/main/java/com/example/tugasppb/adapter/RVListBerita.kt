@@ -3,6 +3,7 @@ package com.example.tugasppb.adapter
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tugasppb.page_berita.BeritaDetail
 import com.example.tugasppb.R
 import com.example.tugasppb.model.ListBerita
+import com.example.tugasppb.network.RetrofitClient.BASE_URL
 import com.example.tugasppb.page_berita.Berita
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_berita.view.*
@@ -25,7 +27,7 @@ class RVListBerita(
             view.title.text = item.title
             view.desc.text = item.desc
             view.date.text = item.date
-            Picasso.get().load(item.image).into(view.image);
+            Picasso.get().load(BASE_URL + "images/" + item.image).into(view.image);
             view.setOnClickListener {
                 val page = Intent(
                     context,

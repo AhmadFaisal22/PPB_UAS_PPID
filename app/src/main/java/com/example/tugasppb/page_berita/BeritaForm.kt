@@ -77,7 +77,8 @@ class BeritaForm(
                         etTitle.text.toString(),
                         etDesc.text.toString(),
                         photo.toString(),
-                        etDate.text.toString()
+                        etDate.text.toString(),
+                        if (dataPayload == null) dataPayload!!.id else ""
                     )
                 )
                 dismiss()

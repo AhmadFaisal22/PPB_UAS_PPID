@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tugasppb.R
 import com.example.tugasppb.model.ListBerita
+import com.example.tugasppb.network.RetrofitClient
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_berita_detail.*
@@ -68,7 +69,7 @@ class BeritaDetail : AppCompatActivity() {
 
     fun setToLayout() {
         findViewById<TextView>(R.id.title).text = berita!!.title
-        Picasso.get().load(berita!!.image).into(image);
+        Picasso.get().load(RetrofitClient.BASE_URL + "images/" + berita!!.image).into(image);
         desc.text = berita!!.desc
     }
 }
