@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tugasppb.page_berita.BeritaDetail
 import com.example.tugasppb.R
 import com.example.tugasppb.model.ListBerita
+import com.example.tugasppb.page_berita.Berita
 import kotlinx.android.synthetic.main.item_berita.view.*
 
 
@@ -31,7 +32,7 @@ class RVListBerita(
                 )
                 page.putExtra("data", item)
                 page.putExtra("position", position)
-                (context as Activity).startActivityForResult(page, 1)
+                (context as Activity).startActivityForResult(page, Berita.PICK_UPDATE_RESULT)
             }
         }
     }

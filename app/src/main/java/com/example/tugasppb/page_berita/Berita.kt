@@ -1,5 +1,6 @@
 package com.example.tugasppb.page_berita
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,6 +18,9 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_berita.*
 
 class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
+    companion object{
+        const val PICK_UPDATE_RESULT = 1
+    }
     var listBerita = ArrayList<ListBerita>()
     lateinit var recyclerView: RecyclerView
     lateinit var viewAdapter: RVListBerita
@@ -91,11 +95,16 @@ class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        when(requestCode){
+            PICK_UPDATE_RESULT->{
+                if(resultCode === Activity.RESULT_OK){
+                    val dateChange = data!!.getSerializableExtra("data") as ListBerita
+                    val position = data!!.getIntExtra("position", 0)
+                    viewAdapter.changeItem(dateChange, position)
+                }
+            }
+        }
 
-        val dateChange = data!!.getSerializableExtra("data") as ListBerita
-        val position = data!!.getIntExtra("position", 0)
-
-        viewAdapter.changeItem(dateChange, position)
     }
 
 }
