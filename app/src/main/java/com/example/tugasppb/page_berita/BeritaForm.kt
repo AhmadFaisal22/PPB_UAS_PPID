@@ -5,6 +5,7 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextUtils
 import android.util.Log
@@ -43,6 +44,9 @@ class BeritaForm(
         updateLabel()
         formTitle.text = title
 
+        etTitle.setText("test hp")
+        etDesc.setText("test hp")
+        etDate.setText("test hp")
         if (dataPayload != null) {
             etTitle.setText(dataPayload!!.title)
             etDesc.setText(dataPayload!!.desc)
@@ -78,15 +82,14 @@ class BeritaForm(
                         etDesc.text.toString(),
                         photo.toString(),
                         etDate.text.toString(),
-                        if (dataPayload == null) dataPayload!!.id else ""
+                        if (dataPayload != null) dataPayload!!.id else ""
                     )
                 )
                 dismiss()
             }
         }
         ciImage.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
+            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             (context as Activity).startActivityForResult(intent, Berita.PICK_IMAGE)
         }
     }

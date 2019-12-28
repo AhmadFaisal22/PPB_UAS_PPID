@@ -2,10 +2,14 @@ package com.example.tugasppb.page_berita
 
 import android.app.Activity
 import android.content.Intent
+import android.database.Cursor
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.loader.content.CursorLoader
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,15 +18,15 @@ import com.example.tugasppb.R
 import com.example.tugasppb.adapter.RVListBerita
 import com.example.tugasppb.model.ListBerita
 import com.example.tugasppb.network.APIUtils
-import com.example.tugasppb.network.BeritaService
 import com.example.tugasppb.utils.RecycleItemTouchHelper
 import com.example.tugasppb.utils.RecyclerItemHelperTouchHelperListener
+import com.example.tugasppb.utils.ReqBody
 import com.example.tugasppb.utils.ThreadPolicy
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_berita.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.File
 
 
 class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
@@ -45,8 +49,8 @@ class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
         fabAdd.setOnClickListener {
             bottomDialog = BeritaForm(
                 { item: ListBerita ->
+                    simpanAction(item)
                     viewAdapter.addItem(item)
-                    Snackbar.make(coordinator, "Sukses Menambahkan", Snackbar.LENGTH_SHORT).show()
                 }
                 , "Tambah Berita")
             bottomDialog.show(supportFragmentManager, bottomDialog.tag)
@@ -66,11 +70,9 @@ class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
 //            )
 //        }
 //        Log.d("smpesini", "test")
-        APIUtils.getBeritaService.getBerita()!!.enqueue(object : Callback<ArrayList<ListBerita>> {
-
-
+        APIUtils.beritaService.getBerita()!!.enqueue(object : Callback<ArrayList<ListBerita>> {
             override fun onFailure(call: Call<ArrayList<ListBerita>>, t: Throwable) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                Log.d("failed", "failed")
             }
 
             override fun onResponse(
@@ -140,4 +142,24 @@ class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
 
     }
 
+    fun simpanAction(item: ListBerita) {
+        APIUtils.beritaService.insBerita(
+            ReqBody.setText(item.title),
+            ReqBody.setText(item.desc),
+            ReqBody.setText(item.date),
+            ReqBody.setImage(this, Uri.parse(item.image))
+        )!!.enqueue(object :
+            Callback<ArrayList<ListBerita>> {
+            override fun onFailure(call: Call<ArrayList<ListBerita>>, t: Throwable) {
+                Log.d("gagal oi", "---------------" + t.toString())
+            }
+
+            override fun onResponse(
+                call: Call<ArrayList<ListBerita>>,
+                response: Response<ArrayList<ListBerita>>
+            ) {
+                viewAdapter.addItem(response.body()!!.get(0))
+            }
+        })
+    }
 }
