@@ -23,6 +23,7 @@ import com.example.tugasppb.utils.RecyclerItemHelperTouchHelperListener
 import com.example.tugasppb.utils.ReqBody
 import com.example.tugasppb.utils.ThreadPolicy
 import kotlinx.android.synthetic.main.activity_berita.*
+import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -50,7 +51,6 @@ class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
             bottomDialog = BeritaForm(
                 { item: ListBerita ->
                     simpanAction(item)
-                    viewAdapter.addItem(item)
                 }
                 , "Tambah Berita")
             bottomDialog.show(supportFragmentManager, bottomDialog.tag)
@@ -117,9 +117,19 @@ class Berita : AppCompatActivity(), RecyclerItemHelperTouchHelperListener {
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int, position: Int) {
         if (viewHolder is RVListBerita.MyViewHolder) {
-            var title: String = listBerita.get(viewHolder.adapterPosition).title
+//            var title: String = listBerita.get(viewHolder.adapterPosition).title
             var deleteItem: Int = viewHolder.adapterPosition
-            Toast.makeText(this, "Delete " + title, Toast.LENGTH_SHORT).show()
+
+            APIUtils.beritaService.dalBerita(listBerita[viewHolder.adapterPosition].id!!).enqueue(object :
+                Callback<String> {
+                override fun onFailure(call: Call<String>, t: Throwable) {
+                    Log.d("test", t.toString())
+                }
+
+                override fun onResponse(call: Call<String>, response: Response<String>) {
+                    viewAdapter.removeItem(deleteItem)
+                }
+            })
             viewAdapter.removeItem(deleteItem)
         }
     }

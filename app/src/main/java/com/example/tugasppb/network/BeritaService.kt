@@ -4,10 +4,7 @@ import com.example.tugasppb.model.ListBerita
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Multipart
-import retrofit2.http.POST
-import retrofit2.http.Part
+import retrofit2.http.*
 
 interface BeritaService {
 
@@ -20,13 +17,31 @@ interface BeritaService {
         @Part("title") title: RequestBody,
         @Part("desc") desc: RequestBody,
         @Part("date") date: RequestBody,
-        @Part("image\"; filename=\"myfile.jpg\" ") image: RequestBody): Call<ArrayList<ListBerita>>
-//    @POST("add/")
-//    fun addUser(@Body user: User?): Call<User?>?
-//
-//    @PUT("update/{id}")
-//    fun updateUser(@Path("id") id: Int, @Body user: User?): Call<User?>?
-//
-//    @DELETE("delete/{id}")
-//    fun deleteUser(@Path("id") id: Int): Call<User?>?
+        @Part("image\"; filename=\"myfile.jpg\" ") image: RequestBody
+    ): Call<ArrayList<ListBerita>>
+
+    @Multipart
+    @POST("update.php")
+    fun updBerita(
+        @Part("title") title: RequestBody,
+        @Part("desc") desc: RequestBody,
+        @Part("date") date: RequestBody,
+        @Part("image\"; filename=\"myfile.jpg\" ") image: RequestBody,
+        @Part("id") id: RequestBody
+    ): Call<ArrayList<ListBerita>>
+
+    @Multipart
+    @POST("update.php")
+    fun updBeritaNoImage(
+        @Part("title") title: RequestBody,
+        @Part("desc") desc: RequestBody,
+        @Part("date") date: RequestBody,
+        @Part("image") image: RequestBody,
+        @Part("id") id: RequestBody
+    ): Call<ArrayList<ListBerita>>
+
+    @GET("delete.php")
+    fun dalBerita(
+        @Query("id") id: String
+    ): Call<String>
 }

@@ -15,9 +15,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.tugasppb.R
 import com.example.tugasppb.model.ListBerita
+import com.example.tugasppb.network.RetrofitClient
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_berita_detail.*
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_berita_form.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -51,7 +51,7 @@ class BeritaForm(
             etTitle.setText(dataPayload!!.title)
             etDesc.setText(dataPayload!!.desc)
             etDate.setText(dataPayload!!.date)
-//            image.setImageResource(dataPayload!!.image)
+            Picasso.get().load(RetrofitClient.BASE_URL + "images/" + dataPayload.image).into(ciImage);
         }
 
         var date = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
