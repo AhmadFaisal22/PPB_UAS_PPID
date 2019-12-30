@@ -23,6 +23,7 @@ class Intro : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         prefManager = PrefManager(this)
+        prefManager!!.showAppIntro = true
         if (!prefManager!!.showAppIntro) {
             launchHomeScreen()
             finish()
@@ -84,7 +85,7 @@ class Intro : AppCompatActivity() {
     }
 
     private fun launchHomeScreen() {
-        prefManager!!.showAppIntro = false
+//        prefManager!!.showAppIntro = false
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }

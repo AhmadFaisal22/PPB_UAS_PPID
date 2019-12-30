@@ -43,10 +43,6 @@ class BeritaForm(
         super.onViewCreated(view, savedInstanceState)
         updateLabel()
         formTitle.text = title
-
-        etTitle.setText("test hp")
-        etDesc.setText("test hp")
-        etDate.setText("test hp")
         if (dataPayload != null) {
             etTitle.setText(dataPayload!!.title)
             etDesc.setText(dataPayload!!.desc)
