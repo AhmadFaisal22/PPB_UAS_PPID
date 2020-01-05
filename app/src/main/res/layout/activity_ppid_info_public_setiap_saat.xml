@@ -15,50 +15,11 @@
         android:theme="@style/ToolbarColoredBackArrow"
         app:title="INFORMASI SETIAP SAAT"
         app:titleTextColor="@color/colorWhite" />
-    <TableLayout
-        android:layout_margin="20dp"
-        android:stretchColumns="1"
-        android:background="@drawable/bg_border_blue_noradius"
+
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TableRow
-            android:background="@color/colorLightPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-            <TextView
-                android:background="@drawable/bg_border_blue_noradius"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No" />
-            <TextView
-                android:background="@drawable/bg_border_blue_noradius"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="JUDUL INFORMASI" />
-            <TextView
-                android:background="@drawable/bg_border_blue_noradius"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TAUTAN" />
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-            <TextView
-                android:background="@drawable/bg_border_blue_noradius"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No" />
-            <TextView
-                android:background="@drawable/bg_border_blue_noradius"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="JUDUL INFORMASI" />
-            <TextView
-                android:background="@drawable/bg_border_blue_noradius"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TAUTAN" />
-        </TableRow>
-    </TableLayout>
+        android:layout_height="205dp"
+        android:src="@drawable/table" />
 </LinearLayout>
