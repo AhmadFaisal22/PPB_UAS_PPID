@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.example.tugasppb.R
 import com.example.tugasppb.adapter.LvListMenyikapiHoax
 import com.example.tugasppb.static_data.ListInfoSertamertaTipsMenyikapiHoax
+import com.example.tugasppb.utils.Utils
 import kotlinx.android.synthetic.main.activity_ppid_info_public_sertamerta_tips_menyikapi_hoax.*
 
 class PpidInfoPublicSertamertaTipsMenyikapiHoax : AppCompatActivity() {
@@ -16,7 +17,12 @@ class PpidInfoPublicSertamertaTipsMenyikapiHoax : AppCompatActivity() {
         listView.adapter = LvListMenyikapiHoax(
             this,
             ListInfoSertamertaTipsMenyikapiHoax.data,
-            { position -> }
+            { position ->
+                if (position == 4) Utils.openBrowser(
+                    this,
+                    "https://ppid.diskominfo.jatengprov.go.id/tips-menyikapi-berita-hoaks/"
+                )
+            }
         )
     }
 

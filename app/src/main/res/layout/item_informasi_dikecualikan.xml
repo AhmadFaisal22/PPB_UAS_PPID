@@ -34,6 +34,6 @@
         android:layout_height="27dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/bg_border_blue"
-        android:text="Button"
+        android:text="Download"
         android:textColor="@color/colorPrimary" />
 </LinearLayout>

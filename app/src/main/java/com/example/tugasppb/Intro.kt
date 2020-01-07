@@ -1,19 +1,25 @@
 package com.example.tugasppb
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
+import android.util.Log
 import android.view.*
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentActivity
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.example.tugasppb.utils.PrefManager
 import kotlinx.android.synthetic.main.activity_intro.*
+
 
 class Intro : AppCompatActivity() {
     var myViewPagerAdapter: MyViewPagerAdapter? = null
@@ -24,12 +30,12 @@ class Intro : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         prefManager = PrefManager(this)
         prefManager!!.showAppIntro = true
+        isStoragePermissionGranted()
         if (!prefManager!!.showAppIntro) {
             launchHomeScreen()
             finish()
         }
         setContentView(R.layout.activity_intro)
-
         layouts.add(R.layout.intro_slide1)
         layouts.add(R.layout.intro_slide2)
         layouts.add(R.layout.intro_slide3)
@@ -144,6 +150,28 @@ class Intro : AppCompatActivity() {
         ) {
             val view = `object` as View
             container.removeView(view)
+        }
+    }
+
+    fun isStoragePermissionGranted(): Boolean {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                == PackageManager.PERMISSION_GRANTED
+            ) {
+                Log.v("================", "Permission is granted")
+                true
+            } else {
+                Log.v("==================", "Permission is revoked")
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                    1
+                )
+                false
+            }
+        } else { //permission is automatically granted on sdk<23 upon installation
+            Log.v("==============", "Permission is granted")
+            true
         }
     }
 }

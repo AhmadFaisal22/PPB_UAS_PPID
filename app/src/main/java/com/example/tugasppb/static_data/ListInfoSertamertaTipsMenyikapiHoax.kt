@@ -33,7 +33,7 @@ object ListInfoSertamertaTipsMenyikapiHoax {
             dataTemp.add(
                 MenyikapiHoax(
                     "Jenis File",
-                    "Multimedia (tautan youtube), dapat dilihat"
+                    "Multimedia (tautan youtube), klik untuk melihat"
                 )
             )
             return dataTemp

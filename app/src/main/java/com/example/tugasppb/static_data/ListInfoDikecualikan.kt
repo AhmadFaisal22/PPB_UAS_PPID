@@ -9,20 +9,23 @@ object ListInfoDikecualikan {
             var dataTemp = ArrayList<InformasiDikecualikan>()
             dataTemp.add(
                 InformasiDikecualikan(
-                    "TPPID Dinas Komunikasi Informatika Provinsi Jawa Tengah Telah Melakukan Uji Konsekuensi Informasi Publik",
-                    "Pada Tanggal 25 April 2019"
+                    "PPID Dinas Komunikasi Informatika Provinsi Jawa Tengah Telah Melakukan Uji Konsekuensi Informasi Publik",
+                    "Pada Tanggal 25 April 2019",
+                    "https://ppid.diskominfo.jatengprov.go.id/wp-content/uploads/2019/08/SK-DIK-2019.pdf"
                 )
             )
             dataTemp.add(
                 InformasiDikecualikan(
-                    "TPPID Dinas Komunikasi Informatika Provinsi Jawa Tengah Telah Melakukan Uji Konsekuensi Informasi Publik",
-                    "Pada Tanggal 25 April 2019"
+                    "PPID Dinas Komunikasi Informatika Provinsi Jawa Tengah Telah Melakukan Uji Konsekuensi Informasi Publik",
+                    "Pada Tanggal 9 April 2018",
+                    "https://ppid.diskominfo.jatengprov.go.id/wp-content/uploads/2019/08/Scan-DI-Dikecualikan.pdf"
                 )
             )
             dataTemp.add(
                 InformasiDikecualikan(
-                    "TPPID Dinas Komunikasi Informatika Provinsi Jawa Tengah Telah Melakukan Uji Konsekuensi Informasi Publik",
-                    "Pada Tanggal 25 April 2019"
+                    "PPID Dinas Komunikasi Informatika Provinsi Jawa Tengah Telah Melakukan Uji Konsekuensi Informasi Publik",
+                    "Pada Tanggal 6 Juni 2017",
+                    "Terlampir (Penetapan Klasifikasi Informasi Dikecualikan, Undangan, Daftar Hadir Serta Dokumentasi Uji Konsekuensi PPID Diskominfo )"
                 )
             )
             return dataTemp
